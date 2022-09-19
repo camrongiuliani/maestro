@@ -14,7 +14,7 @@ import 'package:flutter/widgets.dart';
 import 'package:logger/logger.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:uuid/uuid.dart';
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 
 part 'bus/bus_part.dart';
 

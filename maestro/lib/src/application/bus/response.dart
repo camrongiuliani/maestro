@@ -1,4 +1,4 @@
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 
 class ResponseEvent {
 

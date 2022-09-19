@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart' hide Router;
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 
 typedef ModuleInitializer = Future<Module> Function( BuildContext context );
 
