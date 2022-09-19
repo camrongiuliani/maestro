@@ -1,4 +1,3 @@
-# Mestro
 ![Logo](https://raw.githubusercontent.com/camrongiuliani/maestro/develop/img/logo-white.png)
 
 - [What is Maestro?](#what-is-maestro)
