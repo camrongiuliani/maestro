@@ -1,97 +1,166 @@
+# Mestro
+![Logo](https://raw.githubusercontent.com/camrongiuliani/maestro/develop/img/logo-white.png)
 
-## Intro
-This Framework aims to provide an app with a modular design approach that conforms to the SOLID principles.
+- [What is Maestro?](#what-is-maestro)
+- [Getting Started](#getting-started)
+    - [Application](#maestro-application)
+    - [Components](#components)
+        - [Module](#modules)
+        - [Service](#modules)
+        - [UseCase](#modules)
+    - [Routing](#routing)
 
-![Compose](https://raw.githubusercontent.com/camrongiuliani/flutter_framework/develop/img/arch-compose.png)
+## What is Maestro?
+Maestro is a coordination layer that promotes agnostic design while allowing for communication between its varying components, even if those components are designed as isolated features.
 
-The Framework is comprised of Components, and pushes the [BVVM pattern](https://github.com/camrongiuliani/flutter_bvvm).
-![BVVM](https://raw.githubusercontent.com/camrongiuliani/flutter_framework/develop/img/arch-bvvm.png)
+## What it Isn't
+Maestro is not a design pattern.
 
-The main Component is the Application class.
+In fact, Maestro will work with any design pattern you choose to implement; whether BLoC, MVVM, MVP or Clean Architecture.
 
-## Component Overview
-![Overview](https://raw.githubusercontent.com/camrongiuliani/flutter_framework/develop/img/arch-app-overview.png)
+This is possible because Maestro is written in (nearly) pure Dart/Flutter and is intended for use at a lower level than your design pattern.
 
+## Getting Started
+#### Maestro Application
+The Maestro *Application* class is the base of the framework.
 
-## Application
-The Application is a singleton that is used to register and maintain dependencies, as well as other Components.
+One of the tools it uses for making things agnostic is build_runner, so when you are ready to instantiate your Application class, go ahead and add your MaestroApp annotation:
 
-Application has built-in storage (mutable and immutable) and will have SecureStorage implemented near-term.
+    @MaestroApp()  
+	class ExampleApp { ... }
 
-Modules and Services (other types of Components) are registered for use by the Application:
-```dart
-Application application = Application();
-application.register<OnboardingModule>( OnboardingModule( application ) );
-```
+This annotation takes in a few different things, which will be covered later.
 
-You can also register async:
-```dart
-Application application = Application();
-application.registerAsync( FrameworkComponentBuilder( () => OnboardingModule( application ) ) );
-application.loadAsyncComponent<OnboardingModule>();
-```
+Now go ahead instantiate a Maestro Application:
 
-You can also register async:
-```dart
-Application application = Application();
-application.registerAsync( FrameworkComponentBuilder( () => OnboardingModule( application ) ) );
-application.loadAsyncComponent<OnboardingModule>();
-```
+    Application application = Application();
 
-To retrieve a Component after registration:
-```dart
-application.component<OnboardingModule>();
-```
+After that, we will need to register our dependencies as singletons. Modules and Services will be discussed further down in the guide.
 
-To check if a Component is registered:
-```dart
-application.componentExists<OnboardingModule>();
-```
+    application.register( MyModule( application ) );  
+    application.register( MyService( application ) );
 
-## Modules
+And then finally:
 
-The Module class has access to the Application, but no other module. Modules should not be direct dependencies of each other.
+    await application.init();
 
-It is comprised of UI elements such as ContentRoutes and Slices.
+The Application class is a Static Singleton and can be accessed directly; however, it is recommended to make use of the App.create widget.
 
-The UI elements are optionally exposed to the Application class, but no other module.
+    runApp( App.create(  
+	  application: application,  
+	  initialRoute: Maestro.routes.onboardingStoreFront,  
+	) );
 
-A ContentRoute is a navigation route.
+Full example:
 
-A Slice is a widget (or a UI 'slice' provided by this Module).
+    @MaestroApp()  
+	void main() async {  
+	  
+	  WidgetsFlutterBinding.ensureInitialized();  
+	  
+	  Application application = Application();  
+	  
+	  application.register( MyModule( application ) );  
+	  application.register( MyService( application ) );  
+	  
+	 await application.init();  
+	  
+	  runApp( App.create(  
+	    application: application,  
+	  initialRoute: Maestro.routes.onboardingStoreFront,  
+	  ) );  
+	}
 
-Each route and slice conforms to the BVVM pattern, in which each widget has a BLoC (for business logic) and a view model.
+#### Components
+Dependencies within Maestro are referred to as Components, and there are three types:
 
-The widget watches the view model and notifies the BLoC on state/interaction change.
+##### Modules
 
-The BLoC updates the view model, updating the UI reactively.
+Modules contain the UI layer, and should not be hard dependencies of each other.
 
-The BLoC retrieves its data from Services, thus Modules are allowed to depend on services. See the configureDependencies() callback in the Module class.
+Modules access the data layer through Services; which **can** be depended on.
 
-## Services
-The Service class has access to the Application, but no other service.
+They also contain routes, slices and use-cases; all of which can be exposed to other Components.
 
-Services connect remote and local data.
+To create a Module, extend the Module class and add the singleton constructor:
 
-Data sources are implemented abstractly through the use of the canonical protocol pattern (known as 'proto' in code).
+Example:
 
-There is a remote data proto and a local data proto.
+    class MyModule extends Module {  
+  
+	  static MyModule? instance;  
+	  
+	  MyModule._(Application application) : super(  
+	    application: application,  
+	  );  
+	  
+	 factory MyModule([ Application? application ]) {  
+		 assert( instance != null || application != null );  
+		 return instance ??= MyModule._(application!);  
+	  }  
+	}
 
-Modules can depend on Services but Services should not depend on each other (whenever possible to ensure single responsibility).
+At this point, you are able to register *MyModule* with Maestro. Add this line where you instantiated the Application.
 
-## Routing
-The Application coordinates intra-module and inter-module routing.
+    application.register( MyModule( application ) );  
 
+This won't actually do anything though, because we have not told the application what the module exposes.
+
+To do that, update your MaestroApp annotation:
+
+    @FrameworkApp(  
+	  modules: [  
+	    MyModule,  
+	  ],  
+	)
+
+Once that is done, go ahead and annotate your module with *MaestroModule*, telling the Application which routes you are going to expose:
+
+    @MaestroModule(  
+	  baseRoute: 'my_route',  
+	  childRoutes: [  
+	    'landing',  
+	  ],  
+	)
+	class MyModule extends Module { ... }
+
+In this example, we are informing the application about the routes that this module can handle. The base route is **my_route**, which exposes a single **childRoute** named 'landing.'
+
+In short, we are simply *exposing routes*, allowing one module to directly route to another.
+
+#### Routing
+
+Routing is handled inside of Maestro; however, it uses the basic Flutter navigator. That means that you should be able to use Maestro routing with other packages such as Modular, should that be desired.
+
+To enable routing between Modules without introducing a hard dependency, we can use maestro_builder code generation.
+
+Maestro_Builder
+
+Make sure to always run build_runner after updating annotations:
+
+    flutter pub run build_runner build --delete-conflicting-outputs
+
+After running build_runner, you should see a part file that contains your exposed route name:
+
+    // ********************************  
+	// Maestro Routes  
+	// ********************************  
+	  
+	class _Routes {  
+	  const _Routes();  
+	  
+	 final String myModuleMyRoute = '/my_route/landing';  
+	}
+
+You are now able to route to your module from any registered Module, without requiring a hard dependency.
+
+    application.router.pushNamed( Maestro.routes.myModuleMyRoute , arguments: {} );
+
+The application router is just a wrapper for pure Flutter navigators. The application has a navigator, as does each Module.
+
+When you **pushNamed**, the application will check to see if there are any modules that can handle the route. If not module exists, then you will land on a 404.
+
+Here is the logical flow for routing:
 ![Routing](https://raw.githubusercontent.com/camrongiuliani/flutter_framework/develop/img/arch-routing.png)
 
-All modules use a shared router that is instantiated inside of the Application class.
-
-When pushing a route, the Application will check each module, looking for one that is able to handle the given route.
-
-If none is found, it should show 404.
-
-If a module is found, then the Application will check to see if the module has an active navigator (top-layer).
-
-If there is an active navigator, then we push on top of that.
-
-If there is not, then we create one and then push on top of it.
+Popping a route is essentially the same, except the application determines which module is currently in use. If it can pop, then the module navigator handles it. If it cannot pop, the module is popped off the navigation stack, exposing the module underneath of it.

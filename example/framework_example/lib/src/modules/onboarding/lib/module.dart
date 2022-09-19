@@ -9,14 +9,12 @@ import 'package:onboarding_module/ui/pages/store_front/page.dart';
 import 'package:onboarding_module/ui/pages/store_front/view_model.dart';
 
 @MaestroModule(
-  baseRoute: OnboardingModule.route,
+  baseRoute: 'my_route',
   childRoutes: [
-    StoreFrontPage.route,
+    'landing',
   ],
 )
 class OnboardingModule extends Module {
-
-  static const String route = "onboarding";
 
   static OnboardingModule? instance;
 

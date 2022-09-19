@@ -6,12 +6,8 @@ import 'package:maestro/framework.dart';
 import 'package:maestro_annotations/base.dart';
 import 'package:onboarding_module/module.dart';
 
-@FrameworkApp(
-  modules: [
-    OnboardingModule,
-  ]
-)
-class ExampleFramework {
+@MaestroApp()
+class ExampleApp {
 
   static ExampleFramework? instance;
 
