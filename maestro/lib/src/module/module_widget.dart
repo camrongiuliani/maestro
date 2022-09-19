@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' hide Router;
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 
 class ModuleWidget extends StatefulWidget {
 

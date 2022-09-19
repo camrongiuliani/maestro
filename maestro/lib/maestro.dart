@@ -20,11 +20,8 @@ export 'package:maestro/src/module/module_widget.dart';
 export 'package:maestro/src/module/module_provider.dart';
 
 export 'package:maestro/src/service/service.dart';
-
 export 'package:maestro/src/slice/content_slice.dart';
-
 export 'package:use_case/use_case.dart';
-
 
 
 export 'package:maestro/src/models/view_arguments.dart';

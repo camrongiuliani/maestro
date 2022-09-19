@@ -1,6 +1,6 @@
 import 'package:bvvm/bvvm.dart';
 import 'package:flutter/material.dart';
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 
 class AppViewModel extends ViewModel<App> {

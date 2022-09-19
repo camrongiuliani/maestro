@@ -1,4 +1,4 @@
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 import 'package:maestro/src/models/framework_component.dart';
 import 'package:logger/logger.dart';
 import 'package:collection/collection.dart';

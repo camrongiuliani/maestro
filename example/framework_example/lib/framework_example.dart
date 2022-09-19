@@ -2,7 +2,7 @@ library framework_example;
 
 import 'dart:async';
 
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 import 'package:maestro_annotations/base.dart';
 import 'package:onboarding_module/module.dart';
 

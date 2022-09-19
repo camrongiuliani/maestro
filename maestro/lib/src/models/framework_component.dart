@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:maestro/framework.dart';
+import 'package:maestro/maestro.dart';
 import 'package:maestro/src/models/super_navigation_observer.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/widgets.dart';
