@@ -29,7 +29,7 @@ You can use BLoC directly in a Maestro Module, or extend the Maestro Module to b
 This is possible because Maestro is written in (nearly) pure Dart/Flutter and is intended for use at a lower level than your design pattern.
 
 ## Getting Started
-#### Maestro Application
+### Maestro Application
 The Maestro *Application* class is the base of the framework and acts as the coordinator.
 
 Instantiating:
@@ -71,14 +71,14 @@ It is also possible to see if a component exists before grabbing it:
 
     application.componentExists<MyModule>();
 
-#### Components
+## Components
 *Components* are the building blocks of a Maestro app, and should be designed as isolated as possible.
 
 There are two core components: *Modules* and *Services*.
 
 Before we dive into those components, lets first talk *UseCase*!
 
-##### UseCases
+### UseCases
 Maestro contains a semi-agnostic *UseCase* framework.
 [Separate Repository](https://github.com/camrongiuliani/use_case)
 
@@ -130,12 +130,13 @@ There are multiple ways to execute a *UseCase* once registered, and doing so wil
 Maestro iterates that queue and fires each queued *UseCase* asynchronously.
 
 Each *UseCase* has its own state, which is one of the following:
->   none - UseCase is not being managed.
-queued - UseCase is in the queue and will be executed.
-started - UseCase execution has started.
-waiting - Waiting for UseCase to finish.
-done - UseCase finished with success.
-error - UseCase finished with errors.
+
+> none - UseCase is not being managed.   
+> queued - UseCase is in the queue and will be executed.   
+> started - UseCase execution has started.
+> waiting - Waiting for UseCase to finish.   
+> done - UseCase finished with success.   
+> error - UseCase finished with errors.
 
 All *UseCase* statuses are kept in memory until the queue has been depleted.
 
