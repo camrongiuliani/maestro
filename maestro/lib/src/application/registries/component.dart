@@ -1,5 +1,5 @@
-import 'package:maestro/maestro.dart';
-import 'package:maestro/src/models/framework_component.dart';
+import 'package:maestro_core/maestro_core.dart';
+import 'package:maestro_core/src/models/framework_component.dart';
 import 'package:logger/logger.dart';
 import 'package:collection/collection.dart';
 

@@ -1,4 +1,4 @@
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:flutter/material.dart';
 import 'package:framework_example/framework_example.dart';
 import 'package:framework_example/framework_example.routes.dart';

@@ -1,6 +1,6 @@
 import 'package:element_tree_child_locator/element_tree_child_locator.dart';
 import 'package:flutter/material.dart' hide Router;
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:lenient_equality/lenient_equality.dart';
 
 extension AppContextExt on BuildContext {

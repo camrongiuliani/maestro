@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  maestro:
+  maestro_core:
     path: ../maestro
 
   bvvm: ^0.0.1+1

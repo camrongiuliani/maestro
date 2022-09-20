@@ -6,7 +6,7 @@ import 'package:source_gen/source_gen.dart' ;
 import 'package:analyzer/dart/element/element.dart';
 import 'models/framework.dart';
 
-class FrameworkGenerator extends GeneratorForAnnotation<FrameworkApp> {
+class FrameworkGenerator extends GeneratorForAnnotation<MaestroApp> {
 
   @override
   FutureOr<String> generateForAnnotatedElement(Element element, ConstantReader annotation, BuildStep buildStep) {

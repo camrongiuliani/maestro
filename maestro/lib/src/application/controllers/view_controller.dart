@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:logger/logger.dart';
 
 class ViewController {

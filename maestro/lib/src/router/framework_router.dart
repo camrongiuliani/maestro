@@ -1,7 +1,7 @@
 
 
 
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:flutter/cupertino.dart';
 
 class FrameworkNavigator {

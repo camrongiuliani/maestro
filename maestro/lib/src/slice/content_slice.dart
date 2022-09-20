@@ -1,4 +1,4 @@
-import 'package:maestro/src/content/content.dart';
+import 'package:maestro_core/src/content/content.dart';
 
 abstract class ContentSlice extends Content {
 

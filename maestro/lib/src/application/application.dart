@@ -1,20 +1,20 @@
-library maestro;
+library maestro_core;
 
 import 'dart:async';
-import 'package:maestro/src/application/registries/component.dart';
-import 'package:maestro/src/application/registries/route.dart';
-import 'package:maestro/src/application/registries/slice.dart';
-import 'package:maestro/src/application/controllers/storage_controller.dart';
-import 'package:maestro/src/application/utils/frame_mixin.dart';
-import 'package:maestro/src/application/controllers/view_controller.dart';
-import 'package:maestro/src/models/framework_component.dart';
-import 'package:maestro/src/router/framework_router.dart';
+import 'package:maestro_core/src/application/registries/component.dart';
+import 'package:maestro_core/src/application/registries/route.dart';
+import 'package:maestro_core/src/application/registries/slice.dart';
+import 'package:maestro_core/src/application/controllers/storage_controller.dart';
+import 'package:maestro_core/src/application/utils/frame_mixin.dart';
+import 'package:maestro_core/src/application/controllers/view_controller.dart';
+import 'package:maestro_core/src/models/framework_component.dart';
+import 'package:maestro_core/src/router/framework_router.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/logger.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:uuid/uuid.dart';
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 
 part 'bus/bus_part.dart';
 

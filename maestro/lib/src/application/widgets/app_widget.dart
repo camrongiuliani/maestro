@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter/services.dart';
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:synchronized/extension.dart';
 import 'package:v_widgets/v_widgets.dart';

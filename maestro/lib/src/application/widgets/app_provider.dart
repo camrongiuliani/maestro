@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart' hide Router;
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 
 /// Provides the Application instance to all widgets below the root widget
 ///

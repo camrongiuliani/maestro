@@ -41,7 +41,7 @@ class FrameworkProcessor extends Processor<ProcessedFramework> {
   }
 
   DartObject? _getFrameworkAnnotation() {
-    return _frameworkElement.getAnnotation( annotations.FrameworkApp );
+    return _frameworkElement.getAnnotation( annotations.MaestroApp );
   }
 
   List<ProcessedModule> _processModules() {

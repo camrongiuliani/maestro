@@ -16,7 +16,7 @@ dependencies:
   framework_example:
     path: ../../../../../framework_example
 
-  maestro:
+  maestro_core:
     path: ../../../../../../maestro
 
   maestro_annotations:

@@ -1,6 +1,6 @@
 library onboarding_module;
 
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:bvvm/bvvm.dart';
 import 'package:maestro_annotations/base.dart';
 import 'package:framework_example/framework_example.routes.dart';

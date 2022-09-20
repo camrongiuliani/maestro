@@ -1,12 +1,12 @@
-library maestro;
+library maestro_core;
 
 import 'dart:async';
 import 'package:abstract_kv_store/abstract_kv_store.dart';
-import 'package:maestro/src/models/framework_component.dart';
+import 'package:maestro_core/src/models/framework_component.dart';
 import 'package:element_tree_child_locator/element_tree_child_locator.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/widgets.dart' hide Router;
-import 'package:maestro/maestro.dart';
+import 'package:maestro_core/maestro_core.dart';
 import 'package:lenient_equality/lenient_equality.dart';
 
 class Module extends FrameworkComponent {
