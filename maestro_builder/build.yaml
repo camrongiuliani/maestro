@@ -1,6 +1,6 @@
 builders:
   maestro_builder:
-    import: "package:maestro_builder/base.dart"
+    import: "package:maestro_builder/maestro_builder.dart"
     # The builder function name, which gets called on build/watch
     builder_factories: ["frameworkBuilder"]
     # The 'partId' argument to 'SharedPartBuilder' is 'framework'

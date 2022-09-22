@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:build/build.dart';
-import 'package:maestro_annotations/base.dart';
+import 'package:maestro_annotations/maestro_annotations.dart';
 import 'package:maestro_builder/src/processor/framework_processor.dart';
 import 'package:source_gen/source_gen.dart' ;
 import 'package:analyzer/dart/element/element.dart';

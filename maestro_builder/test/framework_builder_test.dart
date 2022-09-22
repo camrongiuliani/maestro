@@ -1,5 +1,5 @@
 
-import 'package:maestro_builder/base.dart';
+import 'package:maestro_builder/maestro_builder.dart';
 
 void main() {
 

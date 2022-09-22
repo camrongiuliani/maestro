@@ -3,7 +3,7 @@ library framework_example;
 import 'dart:async';
 
 import 'package:maestro_core/maestro_core.dart';
-import 'package:maestro_annotations/base.dart';
+import 'package:maestro_annotations/maestro_annotations.dart';
 import 'package:onboarding_module/module.dart';
 
 @MaestroApp(

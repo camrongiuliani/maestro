@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:maestro_annotations/base.dart' as annotations;
+import 'package:maestro_annotations/maestro_annotations.dart' as annotations;
 import 'package:maestro_builder/src/models/module.dart';
 import 'package:maestro_builder/src/models/route.dart';
 import 'package:maestro_builder/src/models/slice.dart';

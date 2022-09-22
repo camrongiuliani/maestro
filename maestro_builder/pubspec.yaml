@@ -1,7 +1,7 @@
 name: maestro_builder
-description: Generate Framework Routes.
-version: 0.0.1
-homepage:
+description: Generate Maestro Routes, Slice & UseCase IDs.
+version: 0.0.1+2
+homepage: https://github.com/camrongiuliani/maestro
 
 environment:
   sdk: '>=2.15.1 <3.0.0'
@@ -10,13 +10,13 @@ dependencies:
   analyzer: ^4.1.0
   build: ^2.2.1
 
-  maestro_annotations:
-    path: ../maestro_annotations
+  maestro_annotations: ^0.1.0
 
   meta: ^1.7.0
   source_gen: ^1.2.1
   code_builder: ^4.0.0
   dart_style: ^2.0.0
+  uuid: ^3.0.6
 
 dev_dependencies:
   generator_test: ^0.1.0
