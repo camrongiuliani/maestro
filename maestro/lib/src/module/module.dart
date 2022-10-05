@@ -103,12 +103,6 @@ class Module extends FrameworkComponent {
 
   List<ContentRoute> buildRoutes() => [];
 
-  Future onBeforePush( String routeName, BuildContext? context ) async {}
-
-  Future onBeforePop( String routeName, BuildContext? context ) async {}
-
-  void onDidPop( Route<dynamic> route, Route<dynamic>? previousRoute ) {}
-
   Future<bool> shouldPop( String routeName, BuildContext? context ) async => true;
 
   Future<bool> canPop() async => key.currentState?.canPop() ?? true;

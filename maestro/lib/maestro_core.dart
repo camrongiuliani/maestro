@@ -21,6 +21,7 @@ export 'package:maestro_core/src/module/module_provider.dart';
 
 export 'package:maestro_core/src/service/service.dart';
 export 'package:maestro_core/src/slice/content_slice.dart';
+export 'package:maestro_core/src/slice/slice_widget.dart';
 export 'package:use_case/use_case.dart';
 
 

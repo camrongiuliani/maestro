@@ -1,6 +1,6 @@
 name: maestro_annotations
 description: The annotation package for the Maestro.
-version: 0.1.0
+version: 0.1.0+1
 homepage: https://github.com/camrongiuliani/maestro
 
 environment:

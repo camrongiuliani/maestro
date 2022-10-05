@@ -1,5 +1,6 @@
 import 'package:maestro_core/maestro_core.dart';
 import 'package:flutter/widgets.dart';
+
 class Slice extends StatelessWidget {
 
   final String sliceID;
