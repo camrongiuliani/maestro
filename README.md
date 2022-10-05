@@ -388,7 +388,7 @@ The application has a navigator, as does each Module.
 When you **pushNamed**, the application will check to see if there are any modules that can handle the route. If not module exists, then you will land on a 404 (unknown route).
 
 ### Services
-*Service* creation/registration is similar to that of a *Modules.
+*Service* creation/registration is similar to that of a *Module*.
 
 A *Service* can be thought of as the data layer.
 
