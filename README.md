@@ -93,10 +93,15 @@ With *Maestro*, once a *UseCase* is registered, it can be used anywhere. You can
 
 *UseCase States*:
 > none - UseCase is not being managed.
+> 
 > queued - UseCase is in the queue and will be executed.
+> 
 > started - UseCase execution has started.  
+> 
 > waiting - Waiting for UseCase to finish.
+> 
 > done - UseCase finished with success.
+> 
 > error - UseCase finished with errors.
 
 Here is an example *UseCase* that will print a *message* to console:
