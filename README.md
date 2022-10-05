@@ -44,8 +44,9 @@ Instantiating:
 *Application* is a static singleton, and can be accessed directly; however, the recommendation is to wrap the application in an *AppWidget* using *App.create()*:
 
 
-    runApp( App.create(       application: application,    
-          initialRoute: '',    
+    runApp( App.create(       
+        application: application,    
+        initialRoute: '',    
     ));   
 
 This allows you to access the *Application* using a familiar access pattern:
@@ -54,7 +55,7 @@ This allows you to access the *Application* using a familiar access pattern:
 
 Using *App.create* will also allow you to update certain view elements, such as the `statusBarBrightness`:
 
-    application.viewModel.statusBarBrightness.value = Brightness.dark
+    application.viewModel.statusBarBrightness.value = Brightness.dark;
 
 or the `AppBar, BottomSheet, BottomNavigation`:
 
@@ -159,9 +160,9 @@ You can execute a without needing the response:
 
 Or with a handler:
 
-     application.callUseCase( {id}, observer: UseCaseHandler(     
-    	 onUpdate: ( status ) { 	... }    
-      ));  
+    application.callUseCase( {id}, observer: UseCaseHandler(     
+        onUpdate: ( status ) { 	... }    
+    ));  
 
 
 A use case can also be converted into a future:  
@@ -178,7 +179,10 @@ When the UseCase completes, the stream is closed.
 You can also turn any Class (e.g. a BLoC) into an observer, and pass it to the call method:
 
 
-     class MyBloc extends Bloc implements UseCaseObserver {     const MyBloc();          
+     class MyBloc extends Bloc implements UseCaseObserver {     
+
+        const MyBloc();     
+
         @override    
         void onUseCaseUpdate(UseCaseStatus update) {    
           print('MyBloc : ${update.state}');    
