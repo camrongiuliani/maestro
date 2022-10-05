@@ -160,16 +160,15 @@ You can execute a without needing the response:
 
 Or with a handler:
 
-    application.callUseCase( {id}, observer: UseCaseHandler(     
-        onUpdate: ( status ) { 	... }    
-    ));  
+    application.callUseCase( {id}, observer: UseCaseHandler(
+        onUpdate: ( status ) {}
+    ));
 
 
 A use case can also be converted into a future:  
 dynamic x = await application.callUseCaseFuture( Maestro.useCases.loggingUseCase );
 
 or a stream:
-
 
      Stream<dynamic> x = await application.callUseCaseStream( Maestro.useCases.loggingUseCase );
 
@@ -179,7 +178,7 @@ When the UseCase completes, the stream is closed.
 You can also turn any Class (e.g. a BLoC) into an observer, and pass it to the call method:
 
 
-     class MyBloc extends Bloc implements UseCaseObserver {     
+    class MyBloc extends Bloc implements UseCaseObserver {     
 
         const MyBloc();     
 
@@ -187,34 +186,33 @@ You can also turn any Class (e.g. a BLoC) into an observer, and pass it to the c
         void onUseCaseUpdate(UseCaseStatus update) {    
           print('MyBloc : ${update.state}');    
         }            
-     }  
+    }  
 
 
 Lastly, you can subscribe to a specific UseCase:
 
+    class MyBloc extends Bloc implements UseCaseObserver {     
+        final Application application;
 
-     class MyBloc extends Bloc implements UseCaseObserver {     
-	     final Application application;  
-     
-	     late final UseCaseSubscription subs;    
+        late final UseCaseSubscription subs;    
 	       
-	     MyBloc( this.application ) {  
-		     subs = application.subscribe( Maestro.useCases.loggingUseCase , this ); 
-		 }
-		   
-	     void init() { 
-		     application.callUseCase( Maestro.useCases.loggingUseCase ); 
-		 }
+        MyBloc( this.application ) {  
+            subs = application.subscribe( Maestro.useCases.loggingUseCase , this ); 
+        }
+
+        void init() { 
+            application.callUseCase( Maestro.useCases.loggingUseCase ); 
+        }
 		       
-		 void dispose() {  
-		     subs.dispose(); 
-		 }
+        void dispose() {  
+            subs.dispose(); 
+        }
 		       
-	     @override    
-         void onUseCaseUpdate(UseCaseStatus update) {    
-           print('MyBloc : ${update.state}');    
-         }    
-       }  
+        @override    
+        void onUseCaseUpdate(UseCaseStatus update) {    
+            print('MyBloc : ${update.state}');    
+        }    
+    }  
 
 
 In the example above, `onUseCaseUpdate` will fire whenever the logging use case executes, no matter who executed it or what parameters were passed in.
