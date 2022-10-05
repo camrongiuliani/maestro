@@ -1,9 +1,9 @@
 library onboarding_module;
 
+import 'package:framework_example/framework_example.dart';
 import 'package:maestro_core/maestro_core.dart';
 import 'package:bvvm/bvvm.dart';
 import 'package:maestro_annotations/maestro_annotations.dart';
-import 'package:framework_example/framework_example.routes.dart';
 import 'package:onboarding_module/ui/pages/store_front/bloc.dart';
 import 'package:onboarding_module/ui/pages/store_front/page.dart';
 import 'package:onboarding_module/ui/pages/store_front/view_model.dart';
@@ -41,7 +41,7 @@ class OnboardingModule extends Module {
     return [
       ContentRoute(
         owner: this,
-        routeName: Maestro.routes.onboardingStoreFront,
+        routeName: Maestro.routes.myRouteStoreFront,
         builder: ([ args ]) {
 
           StoreFrontViewModel vm = StoreFrontViewModel();

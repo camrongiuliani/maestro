@@ -1,7 +1,6 @@
 import 'package:maestro_core/maestro_core.dart';
 import 'package:flutter/material.dart';
 import 'package:framework_example/framework_example.dart';
-import 'package:framework_example/framework_example.routes.dart';
 
 
 void main() async {
@@ -12,7 +11,7 @@ void main() async {
 
   runApp( App.create(
     application: application,
-    initialRoute: Maestro.routes.onboardingStoreFront,
+    initialRoute: Maestro.routes.myRouteStoreFront,
   ) );
 
 }

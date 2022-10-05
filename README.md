@@ -392,7 +392,7 @@ When you **pushNamed**, the application will check to see if there are any modul
 
 A *Service* can be thought of as the data layer.
 
-As stated previously, multiple *Modules* may depend on a service, so it is best to write test to ensure you do not introduce any unwanted changes across your project.
+As stated previously, multiple *Modules* may depend on a *Service*, so it is best to write tests to ensure you do not introduce any unwanted changes across your project.
 
     class OnboardingService extends Service {  
       
@@ -408,6 +408,7 @@ As stated previously, multiple *Modules* may depend on a service, so it is best 
     }
 
 ### Maestro Builder
+
 
 
 

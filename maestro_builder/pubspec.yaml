@@ -10,7 +10,9 @@ dependencies:
   analyzer: ^4.1.0
   build: ^2.2.1
 
-  maestro_annotations: ^0.1.0
+#  maestro_annotations: ^0.1.0
+  maestro_annotations:
+    path: ../maestro_annotations
 
   meta: ^1.7.0
   source_gen: ^1.2.1

@@ -6,6 +6,8 @@ import 'package:maestro_core/maestro_core.dart';
 import 'package:maestro_annotations/maestro_annotations.dart';
 import 'package:onboarding_module/module.dart';
 
+part 'framework_example.g.dart';
+
 @MaestroApp(
   modules: [
     OnboardingModule,
