@@ -10,6 +10,8 @@
     - [Routing](#routing)
     - [Annotations](#maestro-builder)
 
+<img src="https://raw.githubusercontent.com/camrongiuliani/configurator/1fc199ce30803e86226cb7fb975f352372a6280e/configurator/badge.svg">
+
 ## What is Maestro?
 Maestro is a coordination layer that promotes agnostic design while allowing for communication between its varying components, even if those components are designed as isolated features.
 
