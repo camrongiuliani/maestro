@@ -1,6 +1,9 @@
 
 ![Logo](https://raw.githubusercontent.com/camrongiuliani/maestro/develop/img/logo-white.png)
 
+<img src="https://raw.githubusercontent.com/camrongiuliani/maestro/196893c3db188de5d1485bb78c7fb7d879f169d4/maestro/badge.svg">
+
+
 - [What is Maestro?](#what-is-maestro)
 - [What it Isnt](#what-it-isnt)
 - [Getting Started](#getting-started)
@@ -13,9 +16,6 @@
             - [Routes](#routes)
         - [Service](#services)
     - [Annotations](#maestro-builder)
-
-
-<img src="https://raw.githubusercontent.com/camrongiuliani/maestro/196893c3db188de5d1485bb78c7fb7d879f169d4/maestro/badge.svg">
 
 
 ## What is Maestro?
