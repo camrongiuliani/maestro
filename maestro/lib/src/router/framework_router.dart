@@ -1,6 +1,7 @@
 
 
 
+import 'package:collection/collection.dart';
 import 'package:maestro_core/maestro_core.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -11,6 +12,8 @@ class FrameworkNavigator {
   final Application application;
 
   FrameworkNavigator( this.application ) : key = GlobalKey<NavigatorState>( debugLabel: 'Root Navigator' );
+
+  bool canHandleRoute( String route ) => application.modules.where( ( m ) => m.canHandleRoute( route ) ).isNotEmpty;
 
   Route<dynamic>? generateRoute( RouteSettings settings ) {
     for ( var module in application.modules ) {

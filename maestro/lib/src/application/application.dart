@@ -1,6 +1,7 @@
 library maestro_core;
 
 import 'dart:async';
+import 'package:abstract_kv_store/abstract_kv_store.dart';
 import 'package:maestro_core/src/application/registries/component.dart';
 import 'package:maestro_core/src/application/registries/route.dart';
 import 'package:maestro_core/src/application/registries/slice.dart';
@@ -124,6 +125,26 @@ class Application extends FrameworkComponent with FrameMixin {
     return null;
   }
 
+  /// Returns mutable KVStore
+  KVStore get mutableStorage => _storageController.mutable;
+
+  /// Returns immutable KVStore
+  KVStore get immutableStorage => _storageController.immutable;
+
+  /// Gets a key from StorageController
+  Future<T?> get<T>( String key, { bool persistent = false, T? defaultValue } ) {
+    return _storageController.get<T>( key, persistent: persistent, defaultValue: defaultValue );
+  }
+
+  /// Sets a value for [key] in StorageController
+  Future<void> set<T>( String key, T? value, { bool persistent = false } ) {
+    return _storageController.set( key, value, persistent: persistent );
+  }
+
+  /// Flushes StorageController
+  Future<void> flush({ bool debugAllowImmutableFlush = false }) async {
+    return _storageController.flush( debugAllowImmutableFlush: debugAllowImmutableFlush );
+  }
 
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
@@ -196,6 +217,8 @@ class Application extends FrameworkComponent with FrameMixin {
     }
 
     var builder = _componentRegistry.getAsyncComponentBuilder<T>();
+
+    _componentRegistry.removeAsyncComponent<T>();
 
     register(builder.build(), syncBus: builder.syncBus );
 

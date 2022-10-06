@@ -41,7 +41,6 @@ class ComponentRegistry {
 
 
   register<T extends FrameworkComponent>( T component ) {
-
     assert( '$T' != 'FrameworkComponent', 'Component type not specified or inferred.' );
     assert( !exists<T>(), 'Component of type $T already registered.');
     assert( !existsAsync<T>(), 'AsyncComponent of type $T already registered.');
@@ -63,6 +62,11 @@ class ComponentRegistry {
     assert( existsAsync<T>(), 'Async Component of type $T not registered' );
 
     return _asyncComponents[ T ] as FrameworkComponentBuilder<T>;
+  }
+
+  /// Removes an async component builder once registered
+  void removeAsyncComponent<T>() {
+    _asyncComponents.remove( T );
   }
 
   /// Returns the currently active ModuleProvider.

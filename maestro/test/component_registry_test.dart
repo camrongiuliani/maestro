@@ -1,8 +1,6 @@
 import 'package:maestro_core/maestro_core.dart';
-import 'package:maestro_core/src/application/application.dart';
 import 'package:maestro_core/src/application/registries/component.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 
 class TestModule extends Module {
 
