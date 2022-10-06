@@ -14,6 +14,10 @@
         - [Service](#services)
     - [Annotations](#maestro-builder)
 
+
+<img src="https://raw.githubusercontent.com/camrongiuliani/maestro/196893c3db188de5d1485bb78c7fb7d879f169d4/maestro/badge.svg">
+
+
 ## What is Maestro?
 Maestro is a coordination layer that promotes agnostic design while allowing for communication between its varying components, even if those components are designed as isolated features.
 
